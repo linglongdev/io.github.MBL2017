@@ -1,0 +1,49 @@
+From 001f5482bbebeda66f57a419276bb89ea5bb6b47 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 7 Sep 2024 17:03:50 +0800
+Subject: [PATCH] install
+
+---
+ MBL2017v2.pro             |  8 ++++++++
+ resources/MBL2017.desktop | 11 +++++++++++
+ 2 files changed, 19 insertions(+)
+ create mode 100644 resources/MBL2017.desktop
+
+diff --git a/MBL2017v2.pro b/MBL2017v2.pro
+index 1a4cd35..3fa48b5 100644
+--- a/MBL2017v2.pro
++++ b/MBL2017v2.pro
+@@ -40,3 +40,11 @@ ICON = ./resources/mbl.icns
+ 
+ #Needed to make binaries launchable from file in Ubuntu - GCC default link flag -pie on newer Ubuntu versions this so otherwise recognised as shared library
+ QMAKE_LFLAGS += -no-pie
++
++target.path = $$PREFIX/bin
++desktop.files = resources/MBL2017.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = resources/MBL2017.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+diff --git a/resources/MBL2017.desktop b/resources/MBL2017.desktop
+new file mode 100644
+index 0000000..143e7ff
+--- /dev/null
++++ b/resources/MBL2017.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=MBL2017
++Name=MBL2017
++Name[zh_CN]=MBL2017
++Icon=MBL2017
++StartupNotify=true
++Terminal=false
++Type=Application
++GenericName=MBL2017
++Version=2.0.0
+\ No newline at end of file
+-- 
+2.43.4
+
